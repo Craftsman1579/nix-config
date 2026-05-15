@@ -16,31 +16,17 @@
     # nixpkgs is best for CLI tools
     casks = [
       # OS enhancements
-      "aerospace"
-      "cleanshot"
-      "hiddenbar"
-      "raycast"
-      "betterdisplay"
+      #"aerospace"
+      #"cleanshot"
+      #"hiddenbar"
+      #"raycast"
+      #"betterdisplay"
 
       # dev
-      "cursor"
-      "ghostty"
       "visual-studio-code"
-      "zed"
-
-      # messaging
-      "discord"
-      "slack"
-      "signal"
 
       # other
-      "1password"
-      "anki"
       "brave-browser"
-      "obsidian"
-      "protonvpn"
-      "thebrowsercompany-dia"
-      "zen"
     ];
     brews = [
       "docker"
