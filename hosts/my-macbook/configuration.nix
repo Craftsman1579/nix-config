@@ -17,13 +17,5 @@
       graphite-cli
     ];
 
-    programs = {
-      zsh = {
-        initContent = ''
-          # Source shell functions
-          source ${./shell-functions.sh}
-        '';
-      };
-    };
   };
 }
