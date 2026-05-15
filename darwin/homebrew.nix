@@ -39,7 +39,6 @@
       "brave-browser"
       "obsidian"
       "protonvpn"
-      "spotify"
       "thebrowsercompany-dia"
       "zen"
     ];
