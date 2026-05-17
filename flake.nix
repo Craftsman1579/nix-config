@@ -37,6 +37,7 @@
         modules = [
           ./darwin
           ./hosts/my-macbook/configuration.nix
+          home-manager.darwinModules.home-manager 
         ];
         specialArgs = { inherit inputs self primaryUser; };
       };
