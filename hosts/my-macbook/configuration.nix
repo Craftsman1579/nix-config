@@ -14,7 +14,7 @@
   home-manager.useUserPackages = true;  # ← neu
 
   home-manager.users.${primaryUser} = {
-    home.stateVersion = "24.05";        # ← neu
+    home.stateVersion = "25.05";        # ← neu
     home.packages = with pkgs; [
       graphite-cli
       glab
