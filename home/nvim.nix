@@ -14,6 +14,7 @@
       treesitter.enable = true;
       telescope.enable = true;
       lualine.enable = true;
+      web-devicons.enable = true;
     };
   };
 }

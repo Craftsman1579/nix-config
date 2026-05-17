@@ -40,7 +40,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     sharedModules = [
-      inputs.nixvim.homeManagerModules.nixvim
+      inputs.nixvim.homeModules.nixvim
     ];
     users.${primaryUser} = {
       imports = [
