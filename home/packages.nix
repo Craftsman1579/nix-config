@@ -23,7 +23,7 @@
       yt-dlp
       ffmpeg
       ollama
-
+nixvim
       # fonts
       nerd-fonts.fira-code
       nerd-fonts.fira-mono
