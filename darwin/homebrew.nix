@@ -9,7 +9,6 @@
       cleanup = "zap";
     };
 
-    caskArgs.no_quarantine = true;
     global.brewfile = true;
 
     # homebrew is best for GUI apps
@@ -23,7 +22,7 @@
       #"betterdisplay"
 
       # dev
-      "visual-studio-code"
+      #"visual-studio-code"
 
       # other
       "brave-browser"
