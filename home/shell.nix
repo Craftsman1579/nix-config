@@ -12,8 +12,6 @@ _: {
     };
   };
 
-  security.pam.services.sudo_local.touchIdAuth = true;
-
   programs.starship = {
     enable = true;
     settings = {
