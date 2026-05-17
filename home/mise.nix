@@ -4,13 +4,12 @@
     enable = true;
     enableZshIntegration = true;
 
-    settings = {
-      experimental = true;
-      verbose = false;
-      auto_install = true;
-    };
-
     globalConfig = {
+      settings = {
+        experimental = true;
+        verbose = false;
+        auto_install = true;
+      };
       tools = {
         node = "lts";
         bun = "latest";
