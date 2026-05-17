@@ -39,6 +39,9 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    sharedModules = [
+      inputs.nixvim.homeManagerModules.nixvim
+    ];
     users.${primaryUser} = {
       imports = [
         ../home
