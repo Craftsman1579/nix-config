@@ -30,5 +30,5 @@
       };
       which-key.enable = true;
     };
-  }
+  };
 }
