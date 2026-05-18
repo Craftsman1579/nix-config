@@ -77,8 +77,10 @@
     # ── Terminal (toggleterm) ─────────────────────────────────────────────
     { mode = "n"; key = "<C-t>"; action = "<cmd>ToggleTerm<CR>"; options.desc = "Toggle terminal"; }
     { mode = "t"; key = "<C-t>"; action = "<cmd>ToggleTerm<CR>"; options.desc = "Toggle terminal"; }
+    { mode = "n"; key = "<leader>t1"; action = "<cmd>ToggleTerm 1<CR>"; options.desc = "Terminal 1"; }
+    { mode = "n"; key = "<leader>t2"; action = "<cmd>ToggleTerm 2<CR>"; options.desc = "Terminal 2"; }
+    { mode = "n"; key = "<leader>t3"; action = "<cmd>ToggleTerm 3<CR>"; options.desc = "Terminal 3"; }
     { mode = "n"; key = "<leader>tf"; action = "<cmd>ToggleTerm direction=float<CR>"; options.desc = "Float terminal"; }
-    { mode = "n"; key = "<leader>th"; action = "<cmd>ToggleTerm direction=horizontal<CR>"; options.desc = "Horizontal terminal"; }
     { mode = "n"; key = "<leader>tv"; action = "<cmd>ToggleTerm direction=vertical<CR>"; options.desc = "Vertical terminal"; }
     { mode = "t"; key = "<Esc>"; action = "<C-\\><C-n>"; options.desc = "Exit terminal mode"; }
   ];

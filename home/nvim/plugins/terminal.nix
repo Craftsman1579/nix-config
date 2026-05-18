@@ -4,7 +4,8 @@
     enable = true;
     settings = {
       open_mapping = "[[<C-t>]]";
-      direction = "float";
+      direction = "horizontal";
+      size = 15;
       float_opts.border = "curved";
       shade_terminals = true;
       persist_mode = true;
