@@ -23,7 +23,20 @@
 
     telescope = {
       enable = true;
-      extensions.fzf-native.enable = true;
+      extensions = {
+        fzf-native.enable = true;
+        project-nvim.enable = true;
+      };
+    };
+
+    project-nvim = {
+      enable = true;
+      settings = {
+        manual_mode = false;
+        detection_methods = [ "pattern" "lsp" ];
+        patterns = [ ".git" "flake.nix" "package.json" "Cargo.toml" ];
+        show_hidden = false;
+      };
     };
   };
 }

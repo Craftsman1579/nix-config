@@ -39,6 +39,7 @@
     { mode = "v"; key = "p"; action = "\"_dP"; options.desc = "Paste without yanking"; }
 
     # ── Telescope ─────────────────────────────────────────────────────────
+    { mode = "n"; key = "<leader>fp"; action = "<cmd>Telescope projects<CR>"; options.desc = "Projects"; }
     { mode = "n"; key = "<leader>ff"; action = "<cmd>Telescope find_files<CR>"; options.desc = "Find files"; }
     { mode = "n"; key = "<leader>fg"; action = "<cmd>Telescope live_grep<CR>"; options.desc = "Live grep"; }
     { mode = "n"; key = "<leader>fb"; action = "<cmd>Telescope buffers<CR>"; options.desc = "Find buffers"; }
