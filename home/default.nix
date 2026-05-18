@@ -7,6 +7,7 @@
     ./mise.nix
     ./nvim
     ./fonts.nix
+    ./ollama.nix
   ];
 
   home = {

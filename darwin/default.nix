@@ -52,9 +52,6 @@
     };
   };
 
-  # ollama service (läuft als LaunchDaemon auf localhost:11434)
-  services.ollama.enable = true;
-
   # macOS-specific settings
   system.primaryUser = primaryUser;
   users.users.${primaryUser} = {
