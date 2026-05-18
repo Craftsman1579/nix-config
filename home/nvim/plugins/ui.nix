@@ -15,8 +15,10 @@
 
     neo-tree = {
       enable = true;
-      closeIfLastWindow = true;
-      window.width = 30;
+      settings = {
+        close_if_last_window = true;
+        window.width = 30;
+      };
     };
 
     telescope = {

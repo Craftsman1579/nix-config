@@ -9,7 +9,7 @@
     comment.enable = true;
 
     # Surround (ys / cs / ds)
-    surround.enable = true;
+    vim-surround.enable = true;
 
     # Besseres % matching
     vim-matchup.enable = true;

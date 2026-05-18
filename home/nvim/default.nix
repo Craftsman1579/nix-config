@@ -15,10 +15,10 @@
     };
 
     extraPackages = with pkgs; [
-      nodePackages.prettier
+      prettier
       nixfmt-rfc-style
       typescript
-      nodePackages.typescript-language-server
+      typescript-language-server
     ];
   };
 }
