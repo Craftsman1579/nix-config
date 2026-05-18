@@ -15,6 +15,8 @@
       telescope.enable = true;
       lualine.enable = true;
       web-devicons.enable = true;
+      toggleterm.enable = true;
+
     };
   };
 }
