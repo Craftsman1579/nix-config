@@ -38,6 +38,16 @@
     { mode = "v"; key = "<A-k>"; action = ":m '<-2<CR>gv=gv"; options.desc = "Move selection up"; }
     { mode = "v"; key = "p"; action = "\"_dP"; options.desc = "Paste without yanking"; }
 
+    # ── Debug (DAP) ───────────────────────────────────────────────────────
+    { mode = "n"; key = "<F5>"; action = "<cmd>lua require('dap').continue()<CR>"; options.desc = "Debug: Start/Continue"; }
+    { mode = "n"; key = "<F10>"; action = "<cmd>lua require('dap').step_over()<CR>"; options.desc = "Debug: Step over"; }
+    { mode = "n"; key = "<F11>"; action = "<cmd>lua require('dap').step_into()<CR>"; options.desc = "Debug: Step into"; }
+    { mode = "n"; key = "<F12>"; action = "<cmd>lua require('dap').step_out()<CR>"; options.desc = "Debug: Step out"; }
+    { mode = "n"; key = "<leader>db"; action = "<cmd>lua require('dap').toggle_breakpoint()<CR>"; options.desc = "Debug: Toggle breakpoint"; }
+    { mode = "n"; key = "<leader>dB"; action = "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>"; options.desc = "Debug: Conditional breakpoint"; }
+    { mode = "n"; key = "<leader>du"; action = "<cmd>lua require('dapui').toggle()<CR>"; options.desc = "Debug: Toggle UI"; }
+    { mode = "n"; key = "<leader>dx"; action = "<cmd>lua require('dap').terminate()<CR>"; options.desc = "Debug: Terminate"; }
+
     # ── Telescope ─────────────────────────────────────────────────────────
     { mode = "n"; key = "<leader>fp"; action = "<cmd>Telescope projects<CR>"; options.desc = "Projects"; }
     { mode = "n"; key = "<leader>ff"; action = "<cmd>Telescope find_files<CR>"; options.desc = "Find files"; }

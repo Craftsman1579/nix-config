@@ -9,5 +9,6 @@
     ./editing.nix
     ./terminal.nix
     ./ai.nix
+    ./debug.nix
   ];
 }
