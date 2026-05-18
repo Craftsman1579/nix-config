@@ -28,6 +28,5 @@
           };
         };
       };
-      which-key.enable = true;
     };
-  };
+  }
