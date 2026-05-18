@@ -30,4 +30,4 @@
       };
       which-key.enable = true;
     };
-  }
+  };
