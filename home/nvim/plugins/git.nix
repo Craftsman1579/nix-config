@@ -1,5 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  programs.nixvim.extraPackages = [ pkgs.lazygit ];
+
+  programs.nixvim.plugins.lazygit.enable = true;
+
   programs.nixvim.plugins.gitsigns = {
     enable = true;
     settings = {

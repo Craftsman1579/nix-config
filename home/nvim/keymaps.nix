@@ -65,6 +65,8 @@
     { mode = "n"; key = "]d"; action = "<cmd>lua vim.diagnostic.goto_next()<CR>"; options.desc = "Next diagnostic"; }
 
     # ── Git ───────────────────────────────────────────────────────────────
+    { mode = "n"; key = "<leader>gg"; action = "<cmd>LazyGit<CR>"; options.desc = "LazyGit"; }
+
     { mode = "n"; key = "<leader>gs"; action = "<cmd>Gitsigns stage_hunk<CR>"; options.desc = "Stage hunk"; }
     { mode = "n"; key = "<leader>gr"; action = "<cmd>Gitsigns reset_hunk<CR>"; options.desc = "Reset hunk"; }
     { mode = "n"; key = "<leader>gp"; action = "<cmd>Gitsigns preview_hunk<CR>"; options.desc = "Preview hunk"; }
@@ -72,8 +74,12 @@
     { mode = "n"; key = "]h"; action = "<cmd>Gitsigns next_hunk<CR>"; options.desc = "Next hunk"; }
     { mode = "n"; key = "[h"; action = "<cmd>Gitsigns prev_hunk<CR>"; options.desc = "Previous hunk"; }
 
-    # ── Terminal ──────────────────────────────────────────────────────────
-    { mode = "n"; key = "<leader>tt"; action = "<cmd>terminal<CR>"; options.desc = "Open terminal"; }
+    # ── Terminal (toggleterm) ─────────────────────────────────────────────
+    { mode = "n"; key = "<C-t>"; action = "<cmd>ToggleTerm<CR>"; options.desc = "Toggle terminal"; }
+    { mode = "t"; key = "<C-t>"; action = "<cmd>ToggleTerm<CR>"; options.desc = "Toggle terminal"; }
+    { mode = "n"; key = "<leader>tf"; action = "<cmd>ToggleTerm direction=float<CR>"; options.desc = "Float terminal"; }
+    { mode = "n"; key = "<leader>th"; action = "<cmd>ToggleTerm direction=horizontal<CR>"; options.desc = "Horizontal terminal"; }
+    { mode = "n"; key = "<leader>tv"; action = "<cmd>ToggleTerm direction=vertical<CR>"; options.desc = "Vertical terminal"; }
     { mode = "t"; key = "<Esc>"; action = "<C-\\><C-n>"; options.desc = "Exit terminal mode"; }
   ];
 }

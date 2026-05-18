@@ -7,5 +7,6 @@
     ./completion.nix
     ./git.nix
     ./editing.nix
+    ./terminal.nix
   ];
 }
