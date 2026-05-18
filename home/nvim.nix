@@ -27,6 +27,7 @@
             };
           };
         };
-      };
+      }
+      which-key.enable = true;
     };
   }
