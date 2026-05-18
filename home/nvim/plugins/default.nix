@@ -8,5 +8,6 @@
     ./git.nix
     ./editing.nix
     ./terminal.nix
+    ./ai.nix
   ];
 }
