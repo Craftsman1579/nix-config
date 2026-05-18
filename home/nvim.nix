@@ -26,8 +26,9 @@
               leave_dirs_open = true;
             };
           };
-        }
+        };
       };
       which-key.enable = true;
     };
   }
+}
