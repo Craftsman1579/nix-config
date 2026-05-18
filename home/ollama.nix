@@ -2,7 +2,7 @@
 {
   # Ollama als LaunchAgent (startet automatisch beim Login)
   launchd.agents.ollama = {
-    enable = true;
+    enable = false;
     config = {
       Label = "org.ollama.ollama";
       ProgramArguments = [
