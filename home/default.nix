@@ -5,7 +5,7 @@
     ./git.nix
     ./shell.nix
     ./mise.nix
-    ./nvim.nix
+    ./nvim
   ];
 
   home = {
