@@ -12,6 +12,7 @@
       gh
       zoxide
       lazygit
+      esphome
 
       # programming languages
       mise # node, deno, bun, rust, python, etc.
@@ -28,6 +29,6 @@
       nerd-fonts.fira-code
       nerd-fonts.fira-mono
     ];
-    
+
   };
 }
