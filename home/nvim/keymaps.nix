@@ -27,7 +27,7 @@
     # ── Buffers ───────────────────────────────────────────────────────────
     { mode = "n"; key = "<S-h>"; action = "<cmd>bprevious<CR>"; options.desc = "Previous buffer"; }
     { mode = "n"; key = "<S-l>"; action = "<cmd>bnext<CR>"; options.desc = "Next buffer"; }
-    { mode = "n"; key = "<leader>bd"; action = "<cmd>bdelete<CR>"; options.desc = "Delete buffer"; }
+   { mode = "n"; key = "<leader>bd"; action = "<cmd>bdelete<CR>"; options.desc = "Delete buffer"; }
 
     # ── Editing ───────────────────────────────────────────────────────────
     { mode = "v"; key = "<"; action = "<gv"; options.desc = "Indent left"; }

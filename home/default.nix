@@ -6,6 +6,7 @@
     ./shell.nix
     ./mise.nix
     ./nvim
+    ./fonts.nix
   ];
 
   home = {
