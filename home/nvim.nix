@@ -28,6 +28,6 @@
           };
         };
       };
+      which-key.enable = true;
     };
-  };
-}
+  }
