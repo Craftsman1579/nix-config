@@ -25,6 +25,7 @@
       yt-dlp
       ffmpeg
       ollama
+      k9s
 
       # fonts
       nerd-fonts.fira-code

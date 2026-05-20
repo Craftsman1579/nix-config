@@ -43,9 +43,16 @@
         modules = [
           ./darwin
           ./hosts/my-macbook/configuration.nix
-          home-manager.darwinModules.home-manager 
         ];
         specialArgs = { inherit inputs self primaryUser; };
+      };
+
+      # standalone home-manager for work machine
+      # $ home-manager switch --flake .#work
+      homeConfigurations."work" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-linux;
+        extraSpecialArgs = { inherit inputs self; primaryUser = "coder"; };
+        modules = [ ./home/work.nix ];
       };
 
     };
