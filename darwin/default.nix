@@ -9,6 +9,7 @@
   imports = [
     ./homebrew.nix
     ./settings.nix
+    ./home-manager.nix
     inputs.home-manager.darwinModules.home-manager
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
@@ -33,23 +34,6 @@
     user = primaryUser;
     enable = true;
     autoMigrate = true;
-  };
-
-  # home-manager config
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    sharedModules = [
-      inputs.nixvim.homeModules.nixvim
-    ];
-    users.${primaryUser} = {
-      imports = [
-        ../home
-      ];
-    };
-    extraSpecialArgs = {
-      inherit inputs self primaryUser;
-    };
   };
 
   # macOS-specific settings

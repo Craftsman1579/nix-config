@@ -1,8 +1,7 @@
-{ inputs, pkgs, primaryUser, ... }:
+{ pkgs, primaryUser, ... }:
 {
   imports = [
     ./default.nix
-    inputs.nixvim.homeModules.nixvim
     /etc/qcp/nix/defaults.nix
   ];
 
