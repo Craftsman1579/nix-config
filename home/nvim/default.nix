@@ -16,7 +16,7 @@
 
     extraPackages = with pkgs; [
       prettier
-      nixfmt-rfc-style
+      nixfmt
       typescript
       typescript-language-server
     ];
