@@ -2,12 +2,8 @@
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
-    ./packages.nix
-    ./git.nix
-    ./shell.nix
-    ./mise.nix
-    ./nvim
-    ./fonts.nix
+    ./terminal
+    ./cli
   ];
 
   home = {

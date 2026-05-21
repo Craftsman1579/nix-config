@@ -6,7 +6,7 @@
     users.${primaryUser} = {
       imports = [
         ../home
-        ../home/ollama.nix
+        ../home/gui
       ];
     };
     extraSpecialArgs = {

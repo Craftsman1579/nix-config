@@ -12,9 +12,6 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    # declarative homebrew management
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-
     # neovim configuration
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -28,7 +25,6 @@
       darwin,
       nixpkgs,
       home-manager,
-      nix-homebrew,
       ...
     }@inputs:
     let
