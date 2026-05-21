@@ -9,9 +9,12 @@
     username = primaryUser;
     homeDirectory = "/home/${primaryUser}";
     stateVersion = "25.05";
+    packages = with pkgs; [
+      home-manager
+    ];
   };
 
   programs.zsh.shellAliases = {
-    nix-switch = "home-manager switch --flake ~/.config/nix";
+    nix-switch = "nix run home-manager/master -- switch --flake ~/.config/nix-config#work --impure";
   };
 }

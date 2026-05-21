@@ -1,24 +1,16 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
-    ./options.nix
+    ./base.nix
     ./keymaps.nix
-    ./plugins
+    ./editor.nix
+    ./ui.nix
+    ./treesitter.nix
+    ./lsp.nix
+    ./completion.nix
+    ./git.nix
+    ./dap.nix
+    ./copilot.nix
+    ./extra-lua.nix
   ];
-
-  programs.nixvim = {
-    enable = true;
-
-    globals = {
-      mapleader = " ";
-      maplocalleader = " ";
-    };
-
-    extraPackages = with pkgs; [
-      prettier
-      nixfmt-rfc-style
-      typescript
-      typescript-language-server
-    ];
-  };
 }
