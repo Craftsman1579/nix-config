@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     # core tools
     curl
-    vim
     tmux
     htop
     tree
