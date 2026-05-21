@@ -15,6 +15,6 @@
   };
 
   programs.zsh.shellAliases = {
-    nix-switch = "nix run home-manager/master -- switch --flake ~/.config/nix-config#work --impure";
+    nix-switch = "home-manager switch --flake ~/.config/nix-config#work --impure";
   };
 }
