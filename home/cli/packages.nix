@@ -8,7 +8,6 @@
     tree
     ripgrep
     gh
-    zoxide
     lazygit
     opencode
     k9s

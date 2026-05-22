@@ -11,6 +11,12 @@ _: {
     };
   };
 
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [ "--cmd" "z" ];
+  };
+
   programs.starship = {
     enable = true;
     settings = {
