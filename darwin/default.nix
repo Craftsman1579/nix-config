@@ -7,7 +7,6 @@
   imports = [
     ./settings.nix
     ./home-manager.nix
-    inputs.home-manager.darwinModules.home-manager
   ];
 
   # nix config

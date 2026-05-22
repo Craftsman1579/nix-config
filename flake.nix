@@ -54,6 +54,7 @@
         system = "aarch64-darwin";
         modules = [
           ./darwin
+          inputs.home-manager.darwinModules.home-manager
         ];
         specialArgs = { inherit inputs; };
       };

@@ -13,6 +13,22 @@ darwin-rebuild switch --flake .#my-macbook
 home-manager switch --flake .#work
 ```
 
+## Updates
+
+```bash
+# Alle Inputs auf den neuesten Stand bringen
+nix flake update
+
+# Nur bestimmte Inputs aktualisieren (z.B. nixpkgs)
+nix flake update nixpkgs
+
+# Nach dem Update auf dem MacBook anwenden
+darwin-rebuild switch --flake .#my-macbook
+```
+
+> `nix flake update` schreibt die neuesten Commits der in `flake.nix` referenzierten Branches
+> in die `flake.lock`. Anschließend mit `darwin-rebuild` das System aktualisieren.
+
 ## Struktur
 
 ```

@@ -1,4 +1,4 @@
-{ inputs, outputs, config, ... }:
+{ inputs, config, ... }:
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
