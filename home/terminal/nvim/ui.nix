@@ -56,7 +56,7 @@
         cmdline.enabled = true;
         messages.enabled = true;
         popups.enabled = true;
-        notify.enabled = true;
+        notify.enabled = false;
         lsp = {
           progress.enabled = true;
           override = {
@@ -65,6 +65,7 @@
           };
         };
         presets = {
+          history = true;
           lsp_doc_border = true;
           command_palette = true;
         };

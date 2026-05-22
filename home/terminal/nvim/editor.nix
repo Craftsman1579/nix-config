@@ -79,14 +79,5 @@
         enable_get_cursor_colline = true;
       };
     };
-
-    project-nvim = {
-      enable = true;
-      settings = {
-        detection_methods = [ "pattern" ];
-        patterns = [ ".git" "package.json" ];
-        sync_with_buffer = true;
-      };
-    };
   };
 }
