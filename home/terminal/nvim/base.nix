@@ -58,9 +58,29 @@
       wrap = false;
     };
 
-    colorscheme = "desert";
-
     autoGroups.highlight-yank.clear = true;
+
+    plugins.catppuccin = {
+      enable = true;
+      settings = {
+        flavour = "frappe";
+        transparent_background = false;
+        integrations = {
+          cmp = true;
+          gitsigns = true;
+          telescope = true;
+          treesitter = true;
+          which_key = true;
+          indent_blankline = true;
+          lualine = true;
+          trouble = true;
+          noice = true;
+          flash = true;
+          illuminate = true;
+          ufo = true;
+        };
+      };
+    };
 
     autoCmd = [
       {

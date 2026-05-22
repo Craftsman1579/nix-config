@@ -24,7 +24,7 @@
       enable = true;
       settings = {
         options = {
-          theme = "auto";
+          theme = "catppuccin";
           component_separators = { left = ""; right = ""; };
           section_separators = { left = ""; right = ""; };
         };
@@ -49,5 +49,26 @@
 
     todo-comments.enable = true;
     trouble.enable = true;
+
+    noice = {
+      enable = true;
+      settings = {
+        cmdline.enabled = true;
+        messages.enabled = true;
+        popups.enabled = true;
+        notify.enabled = true;
+        lsp = {
+          progress.enabled = true;
+          override = {
+            "vim.lsp.util.convert_input_to_markdown" = true;
+            "vim.lsp.util.stylize_markdown" = true;
+          };
+        };
+        presets = {
+          lsp_doc_border = true;
+          command_palette = true;
+        };
+      };
+    };
   };
 }

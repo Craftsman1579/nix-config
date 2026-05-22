@@ -28,6 +28,7 @@
     { mode = "n"; key = "<leader>/"; action = "<cmd>Telescope current_buffer_fuzzy_find<CR>"; options.desc = "Fuzzy in Buffer"; }
     { mode = "n"; key = "<leader>sG"; action = "<cmd>Telescope git_files<CR>"; options.desc = "Search Git Files"; }
     { mode = "n"; key = "<leader>st"; action = "<cmd>TodoTelescope<CR>"; options.desc = "Search Todo"; }
+    { mode = "n"; key = "<leader>sp"; action = "<cmd>Telescope projects<CR>"; options.desc = "Search Projects"; }
 
     {
       mode = "n";

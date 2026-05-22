@@ -67,5 +67,26 @@
         '';
       };
     };
+
+    flash.enable = true;
+
+    illuminate.enable = true;
+
+    ufo = {
+      enable = true;
+      settings = {
+        fold_virt_text_titles = true;
+        enable_get_cursor_colline = true;
+      };
+    };
+
+    project-nvim = {
+      enable = true;
+      settings = {
+        detection_methods = [ "pattern" ];
+        patterns = [ ".git" "package.json" ];
+        sync_with_buffer = true;
+      };
+    };
   };
 }
