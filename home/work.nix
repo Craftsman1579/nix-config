@@ -1,0 +1,29 @@
+{ inputs, outputs, pkgs, ... }:
+{
+  imports = [
+    /etc/qcp/nix/defaults.nix
+    ./cli
+    ./terminal
+    ./base.nix
+    inputs.nixvim.homeModules.nixvim
+  ];
+
+  home = {
+    username = "coder";
+    homeDirectory = "/home/coder";
+  };
+
+  programs.zsh.shellAliases = {
+    nix-switch = "home-manager switch --flake ~/.config/nix-config#work --impure";
+  };
+
+  programs.bash = {
+    enable = true;
+
+    ## Autostart zsh on interactive shells, as we cannot use chsh
+    #initExtra = ''
+    #  exec zsh
+    #'';
+  };
+
+}

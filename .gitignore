@@ -1,0 +1,8 @@
+# Nix/Home-manager
+result
+result-*
+.direnv/
+.envrc
+*.swp
+*~
+.DS_Store
