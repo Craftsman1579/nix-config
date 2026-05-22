@@ -1,9 +1,16 @@
-{ inputs, outputs, ... }:
+{ pkgs, inputs, outputs, ... }:
 {
   # touch ID for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  # system defaults and preferences
+  # system fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.jetbrains-mono
+  ];
+
+  # system configuration and defaults
   system = {
     stateVersion = 6;
 

@@ -8,7 +8,7 @@
       catppuccin
     ];
     extraConfig = ''
-      set -g @catppuccin_flavor 'mocha'
+      set -g @catppuccin_flavor 'frappe'
     '';
   };
 }

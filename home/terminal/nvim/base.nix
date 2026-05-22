@@ -50,37 +50,38 @@
       cursorline = true;
       scrolloff = 10;
       hlsearch = true;
-      termguicolors = true;
-      tabstop = 2;
-      shiftwidth = 2;
-      expandtab = true;
-      smartindent = true;
-      wrap = false;
-    };
+       termguicolors = true;
+       tabstop = 2;
+       shiftwidth = 2;
+       expandtab = true;
+       smartindent = true;
+       wrap = false;
+     };
 
-    autoGroups.highlight-yank.clear = true;
+     autoGroups.highlight-yank.clear = true;
 
-    plugins.catppuccin = {
-      enable = true;
-      settings = {
-        flavour = "mocha";
-        transparent_background = false;
-        integrations = {
-          cmp = true;
-          gitsigns = true;
-          telescope = true;
-          treesitter = true;
-          which_key = true;
-          indent_blankline = true;
-          lualine = true;
-          trouble = true;
-          noice = true;
-          flash = true;
-          illuminate = true;
-          ufo = true;
-        };
-      };
-    };
+     colorschemes.catppuccin = {
+       enable = true;
+       autoLoad = true;
+       callSetup = true;
+       settings = {
+         flavour = "macchiato";
+         transparent_background = false;
+         integrations = {
+           cmp = true;
+           gitsigns = true;
+           telescope = true;
+           treesitter = true;
+           which_key = true;
+           indent_blankline = { enabled = true; };
+           lualine = true;
+           trouble = true;
+           noice = true;
+           flash = true;
+           illuminate = true;
+         };
+       };
+     };
 
     autoCmd = [
       {
