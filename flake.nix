@@ -40,9 +40,7 @@
       ];
 
       formatters = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-      darwinFormatters = forAllDarwinSystems (
-        system: darwin.legacyPackages.${system}.nixfmt-rfc-style
-      );
+      darwinFormatters = forAllDarwinSystems (system: darwin.legacyPackages.${system}.nixfmt-rfc-style);
     in
     {
       # The nix formatter for this flake. See https://github.com/NixOS/nixfmt. Use with 'nix fmt'
