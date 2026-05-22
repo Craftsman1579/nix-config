@@ -3,5 +3,6 @@ _: {
     ./shell.nix
     ./git.nix
     ./nvim
+    ./tmux.nix
   ];
 }
