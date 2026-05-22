@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     # core tools
     curl
-    tmux
+    fzf
     htop
     tree
     ripgrep
