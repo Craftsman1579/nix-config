@@ -21,11 +21,6 @@
 
   programs.bash = {
     enable = true;
-
-    ## Autostart zsh on interactive shells, as we cannot use chsh
-    #initExtra = ''
-    #  exec zsh
-    #'';
   };
 
 }
