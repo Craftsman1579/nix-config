@@ -13,8 +13,10 @@
     homeDirectory = "/home/coder";
   };
 
+  programs.home-manager.enable = true;
+
   programs.zsh.shellAliases = {
-    nix-switch = "home-manager switch --flake ~/.config/nix-config#work --impure";
+    nix-switch = "home-manager switch --flake ~/.config/home-manager#work --impure";
   };
 
   programs.bash = {
