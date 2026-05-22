@@ -63,7 +63,7 @@
     plugins.catppuccin = {
       enable = true;
       settings = {
-        flavour = "frappe";
+        flavour = "mocha";
         transparent_background = false;
         integrations = {
           cmp = true;
