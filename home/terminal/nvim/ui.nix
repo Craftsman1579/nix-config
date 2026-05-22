@@ -50,26 +50,6 @@
     todo-comments.enable = true;
     trouble.enable = true;
 
-    noice = {
-      enable = true;
-      settings = {
-        cmdline.enabled = true;
-        messages.enabled = true;
-        popups.enabled = true;
-        notify.enabled = false;
-        lsp = {
-          progress.enabled = true;
-          override = {
-            "vim.lsp.util.convert_input_to_markdown" = true;
-            "vim.lsp.util.stylize_markdown" = true;
-          };
-        };
-        presets = {
-          history = true;
-          lsp_doc_border = true;
-          command_palette = true;
-        };
-      };
-    };
+    noice.enable = false;
   };
 }
