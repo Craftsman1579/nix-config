@@ -12,9 +12,6 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    # declarative homebrew management
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-
     # neovim configuration
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -28,31 +25,51 @@
       darwin,
       nixpkgs,
       home-manager,
-      nix-homebrew,
       ...
     }@inputs:
     let
-      # TODO: replace with your username
-      primaryUser = "alex";
+      inherit (self) outputs;
+
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      forAllDarwinSystems = darwin.lib.genAttrs [
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+
+      formatters = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      darwinFormatters = forAllDarwinSystems (
+        system: darwin.legacyPackages.${system}.nixfmt-rfc-style
+      );
     in
     {
+      # The nix formatter for this flake. See https://github.com/NixOS/nixfmt. Use with 'nix fmt'
+      formatter = nixpkgs.lib.mergeAttrsList [
+        formatters
+        darwinFormatters
+      ];
       # build darwin flake using:
       # $ darwin-rebuild build --flake .#<name>
       darwinConfigurations."my-macbook" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./darwin
-          ./hosts/my-macbook/configuration.nix
         ];
-        specialArgs = { inherit inputs self primaryUser; };
+        specialArgs = { inherit inputs; };
       };
 
       # standalone home-manager for work machine
       # $ home-manager switch --flake .#work
-      homeConfigurations."work" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-linux;
-        extraSpecialArgs = { inherit inputs self; primaryUser = "coder"; };
-        modules = [ ./home/work.nix ];
+      homeConfigurations = {
+        "work" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ ./home/work.nix ];
+        };
       };
 
     };

@@ -1,17 +1,26 @@
-{ pkgs, primaryUser, ... }:
+{ inputs, outputs, pkgs, ... }:
 {
   imports = [
-    ./default.nix
     /etc/qcp/nix/defaults.nix
+    ./cli
+    ./terminal
+    ./base.nix
+    inputs.nixvim.homeModules.nixvim
   ];
 
   home = {
-    username = primaryUser;
-    homeDirectory = "/home/${primaryUser}";
-    stateVersion = "25.05";
+    username = "coder";
+    homeDirectory = "/home/coder";
   };
 
+  programs.home-manager.enable = true;
+
   programs.zsh.shellAliases = {
-    nix-switch = "home-manager switch --flake ~/.config/nix";
+    nix-switch = "home-manager switch --flake ~/.config/home-manager#work --impure";
   };
+
+  programs.bash = {
+    enable = true;
+  };
+
 }

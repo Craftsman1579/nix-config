@@ -1,16 +1,13 @@
-{ pkgs, inputs, self, primaryUser, ... }:
+{ pkgs, inputs, ... }:
 {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.${primaryUser} = {
+    users.alex = {
       imports = [
-        ../home
-        ../home/ollama.nix
+        ../home/alex-darwin.nix
       ];
-    };
-    extraSpecialArgs = {
-      inherit inputs self primaryUser;
+      programs.zsh.shellAliases.nix-switch = "sudo darwin-rebuild switch --flake ~/.config/nix";
     };
   };
 }

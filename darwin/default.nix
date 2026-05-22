@@ -1,21 +1,17 @@
 {
   pkgs,
   inputs,
-  self,
-  primaryUser,
   ...
 }:
 {
   imports = [
-    ./homebrew.nix
     ./settings.nix
     ./home-manager.nix
     inputs.home-manager.darwinModules.home-manager
-    inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
   # nix config
-  nix = {
+nix = {
     settings = {
       experimental-features = [
         "nix-command"
@@ -29,23 +25,13 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # homebrew installation manager
-  nix-homebrew = {
-    user = primaryUser;
-    enable = true;
-    autoMigrate = true;
-  };
-
   # macOS-specific settings
-  system.primaryUser = primaryUser;
-  users.users.${primaryUser} = {
-    home = "/Users/${primaryUser}";
+  system.primaryUser = "alex";
+  users.users.alex = {
+    home = "/Users/alex";
     shell = pkgs.zsh;
   };
   environment = {
-    systemPath = [
-      "/opt/homebrew/bin"
-    ];
     pathsToLink = [ "/Applications" ];
   };
 }

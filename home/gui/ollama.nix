@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
-  # Ollama als LaunchAgent (startet automatisch beim Login)
+  home.packages = with pkgs; [ ollama ];
+
   launchd.agents.ollama = {
     enable = false;
     config = {

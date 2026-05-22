@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # Nerd Font für nvim Icons (lualine, neo-tree etc.)
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
     nerd-fonts.jetbrains-mono
   ];
 }
