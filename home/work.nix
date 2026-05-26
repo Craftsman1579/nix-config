@@ -14,6 +14,9 @@
   };
 
   programs.home-manager.enable = true;
+  programs.glab = {
+    enable = true;
+  };
 
   programs.zsh = {
     enable = true;

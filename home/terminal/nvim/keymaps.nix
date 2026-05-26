@@ -37,6 +37,13 @@
       options.desc = "Code Format";
     }
 
+    {
+      mode = "n";
+      key = "<leader>ca";
+      action.__raw = "function() vim.lsp.buf.code_action() end";
+      options.desc = "Code Actions";
+    }
+
     { mode = "n"; key = "<leader>dc"; action.__raw = "function() require('dap').continue() end"; options.desc = "Debug Continue"; }
     { mode = "n"; key = "<leader>db"; action.__raw = "function() require('dap').toggle_breakpoint() end"; options.desc = "Debug Breakpoint"; }
     {
