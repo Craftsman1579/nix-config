@@ -13,8 +13,8 @@
     # LSP-Server werden automatisch von plugins.lsp.servers.* bereitgestellt
     extraPackages = with pkgs; [
       nodejs
-      nodePackages.typescript
-      nodePackages.typescript-language-server
+      typescript
+      typescript-language-server
       prettierd
       nixfmt
       vscode-js-debug
