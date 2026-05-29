@@ -1,5 +1,5 @@
 # Basis-Konfiguration: enable, opts, globals, colorscheme, autocmds
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   programs.nixvim = {
@@ -7,6 +7,7 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    nixpkgs.source = inputs.nixpkgs;
 
     # Externe Tools fuer Neovims PATH
     # LSP-Server werden automatisch von plugins.lsp.servers.* bereitgestellt

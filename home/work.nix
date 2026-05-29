@@ -8,6 +8,10 @@
     inputs.nixvim.homeModules.nixvim
   ];
 
+  home.packages = with pkgs; [
+    glab
+  ];
+
   home = {
     username = "coder";
     homeDirectory = "/home/coder";

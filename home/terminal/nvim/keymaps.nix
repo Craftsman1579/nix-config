@@ -17,6 +17,7 @@
 
     { mode = "n"; key = "<leader>e"; action = "<cmd>Neotree toggle<CR>"; options.desc = "File Explorer toggle"; }
     { mode = "n"; key = "<leader>o"; action = "<cmd>Neotree focus<CR>"; options.desc = "File Explorer focus"; }
+    { mode = "n"; key = "<leader>t"; action = "<Cmd>exe v:count1 . 'ToggleTerm'<CR>"; options.desc = "Terminal toggle"; }
 
     { mode = "n"; key = "<leader>sf"; action = "<cmd>Telescope find_files<CR>"; options.desc = "Search Files"; }
     { mode = "n"; key = "<leader>sg"; action = "<cmd>Telescope live_grep<CR>"; options.desc = "Search Grep"; }
@@ -35,6 +36,13 @@
       key = "<leader>cf";
       action.__raw = "function() require('conform').format({ async = true, lsp_format = 'fallback' }) end";
       options.desc = "Code Format";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>ca";
+      action.__raw = "function() vim.lsp.buf.code_action() end";
+      options.desc = "Code Actions";
     }
 
     { mode = "n"; key = "<leader>dc"; action.__raw = "function() require('dap').continue() end"; options.desc = "Debug Continue"; }
