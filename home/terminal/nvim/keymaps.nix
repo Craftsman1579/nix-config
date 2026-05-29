@@ -17,7 +17,7 @@
 
     { mode = "n"; key = "<leader>e"; action = "<cmd>Neotree toggle<CR>"; options.desc = "File Explorer toggle"; }
     { mode = "n"; key = "<leader>o"; action = "<cmd>Neotree focus<CR>"; options.desc = "File Explorer focus"; }
-    { mode = "n"; key = "<leader>t"; action.__raw = "<Cmd>exe v:count1 . 'ToggleTerm'<CR>"; options.desc = "Terminal toggle"; }
+    { mode = "n"; key = "<leader>t"; action = "<Cmd>exe v:count1 . 'ToggleTerm'<CR>"; options.desc = "Terminal toggle"; }
 
     { mode = "n"; key = "<leader>sf"; action = "<cmd>Telescope find_files<CR>"; options.desc = "Search Files"; }
     { mode = "n"; key = "<leader>sg"; action = "<cmd>Telescope live_grep<CR>"; options.desc = "Search Grep"; }
