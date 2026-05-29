@@ -12,6 +12,9 @@
     # Externe Tools fuer Neovims PATH
     # LSP-Server werden automatisch von plugins.lsp.servers.* bereitgestellt
     extraPackages = with pkgs; [
+      nodejs
+      nodePackages.typescript
+      nodePackages.typescript-language-server
       prettierd
       nixfmt
       vscode-js-debug
@@ -51,7 +54,8 @@
       cursorline = true;
       scrolloff = 10;
       hlsearch = true;
-       termguicolors = true;
+      termguicolors = true;
+      completeopt = "menu,menuone,noselect";
        tabstop = 2;
        shiftwidth = 2;
        expandtab = true;

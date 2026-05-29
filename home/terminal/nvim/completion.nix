@@ -17,7 +17,8 @@
         snippet.expand.__raw =
           "function(args) require('luasnip').lsp_expand(args.body) end";
 
-        completion.completeopt = "menu,menuone,noinsert";
+        completion.completeopt = "menu,menuone,noselect";
+        completion.keyword_length = 1;
 
         mapping = {
           "<C-n>".__raw = "cmp.mapping.select_next_item()";
