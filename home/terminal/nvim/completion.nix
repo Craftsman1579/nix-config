@@ -1,4 +1,4 @@
-# Completion: nvim-cmp + LuaSnip + friendly-snippets
+# Completion: blink.cmp + LuaSnip + friendly-snippets
 { ... }:
 
 {
@@ -8,56 +8,42 @@
 
     luasnip = {
       enable = true;
-      fromVscode = [ { } ]; # laedt friendly-snippets
+      fromVscode = [ { } ];
     };
 
-    cmp = {
+    blink-cmp = {
       enable = true;
       settings = {
-        snippet.expand.__raw =
-          "function(args) require('luasnip').lsp_expand(args.body) end";
-
-        completion.completeopt = "menu,menuone,noinsert";
-
-        mapping = {
-          "<C-n>".__raw = "cmp.mapping.select_next_item()";
-          "<C-p>".__raw = "cmp.mapping.select_prev_item()";
-          "<C-b>".__raw = "cmp.mapping.scroll_docs(-4)";
-          "<C-f>".__raw = "cmp.mapping.scroll_docs(4)";
-          "<C-y>".__raw = "cmp.mapping.confirm({ select = true })";
-          "<C-Space>".__raw = "cmp.mapping.complete()";
-
-          "<Tab>".__raw = ''
-            cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif require('luasnip').expand_or_locally_jumpable() then
-                require('luasnip').expand_or_jump()
-              else
-                fallback()
-              end
-            end, { 'i', 's' })
-          '';
-
-          "<S-Tab>".__raw = ''
-            cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif require('luasnip').locally_jumpable(-1) then
-                require('luasnip').jump(-1)
-              else
-                fallback()
-              end
-            end, { 'i', 's' })
-          '';
+        keymap = {
+          preset = "super-tab";
+          "<C-n>" = [ "select_next" "fallback" ];
+          "<C-p>" = [ "select_prev" "fallback" ];
+          "<C-b>" = [ "scroll_documentation_up" "fallback" ];
+          "<C-f>" = [ "scroll_documentation_down" "fallback" ];
+          "<C-y>" = [ "select_and_accept" "fallback" ];
+          "<C-Space>" = [ "show" "fallback" ];
         };
 
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "luasnip"; }
-          { name = "buffer"; }
-          { name = "path"; }
-        ];
+        completion = {
+          documentation = {
+            auto_show = true;
+            auto_show_delay_ms = 200;
+          };
+          ghost_text.enabled = true;
+        };
+
+        snippets.preset = "luasnip";
+
+        sources = {
+          default = [ "lsp" "snippets" "buffer" "path" ];
+          providers = {
+            buffer.score_offset = -2;
+          };
+        };
+
+        fuzzy.implementation = "prefer_rust_with_warning";
+
+        signature.enabled = true;
       };
     };
   };
