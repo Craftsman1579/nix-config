@@ -4,20 +4,19 @@
     enable = true;
     lfs.enable = true;
 
-    # macBook personal setup
-    userName = "Alex";  # Ersetzen mit deinem echten Namen
-    userEmail = "alex@example.com";  # Deine persönliche Email
-
-    aliases = {
-      co = "checkout";
-      br = "branch";
-      st = "status";
-      re = "rebase";
-      amend = "commit --amend --no-edit";
-      undo = "reset --soft HEAD~1";
-    };
-
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Alex";
+        email = "alex@example.com";
+      };
+      alias = {
+        co = "checkout";
+        br = "branch";
+        st = "status";
+        re = "rebase";
+        amend = "commit --amend --no-edit";
+        undo = "reset --soft HEAD~1";
+      };
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;

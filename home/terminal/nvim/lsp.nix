@@ -73,15 +73,15 @@
             formatting.command = [ "nixfmt" ];
             nixpkgs.expr = "import <nixpkgs> { }";
             options = {
-              nixos.expr = "(builtins.getFlake (toString ./.)).nixosConfigurations.my-macbook.options";
-              home_manager.expr = "(builtins.getFlake (toString ./.)).homeConfigurations.alex.options";
+            nixos.expr = "(builtins.getFlake (toString ~/.config/nix)).nixosConfigurations.my-macbook.options";
+            home_manager.expr = "(builtins.getFlake (toString ~/.config/nix)).homeConfigurations.alex.options";
             };
           };
         };
 
         bashls.enable = true;
         dockerls.enable = true;
-        eslint.enable = true;
+
       };
     };
   };

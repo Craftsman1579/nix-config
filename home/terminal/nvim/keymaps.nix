@@ -6,11 +6,6 @@
     { mode = "n"; key = "<leader>q"; action.__raw = "vim.diagnostic.setloclist"; options.desc = "Diagnostic Quickfix"; }
     { mode = "t"; key = "<Esc><Esc>"; action = "<C-\\><C-n>"; options.desc = "Terminal verlassen"; }
 
-    { mode = "n"; key = "<C-h>"; action = "<C-w><C-h>"; options.desc = "Fenster links"; }
-    { mode = "n"; key = "<C-l>"; action = "<C-w><C-l>"; options.desc = "Fenster rechts"; }
-    { mode = "n"; key = "<C-j>"; action = "<C-w><C-j>"; options.desc = "Fenster unten"; }
-    { mode = "n"; key = "<C-k>"; action = "<C-w><C-k>"; options.desc = "Fenster oben"; }
-
     { mode = "n"; key = "<S-h>"; action = "<cmd>bprevious<CR>"; options.desc = "Vorheriger Buffer"; }
     { mode = "n"; key = "<S-l>"; action = "<cmd>bnext<CR>"; options.desc = "Naechster Buffer"; }
     { mode = "n"; key = "<leader>bd"; action = "<cmd>bdelete<CR>"; options.desc = "Buffer schliessen"; }

@@ -49,12 +49,12 @@
       cursorline = true;
       scrolloff = 10;
       hlsearch = true;
-       termguicolors = true;
-       tabstop = 2;
-       shiftwidth = 2;
-       expandtab = true;
-       smartindent = true;
-       wrap = false;
+      termguicolors = true;
+      tabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+      smartindent = true;
+      wrap = false;
      };
 
      autoGroups.highlight-yank.clear = true;
