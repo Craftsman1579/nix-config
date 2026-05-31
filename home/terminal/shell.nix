@@ -21,6 +21,8 @@ _: {
     enable = true;
     settings = {
       add_newline = false;
+      format = "$directory$git_branch$git_status$character";
+      directory.truncation_length = 3;
       character = {
         success_symbol = "[λ](bold green)";
         error_symbol = "[λ](bold red)";

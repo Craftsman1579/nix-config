@@ -23,19 +23,17 @@
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    oh-my-zsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [
-        "git"
-        "kubectl"
-        "aws"
-        "helm"
-        "docker"
-        "history-substring-search"
-        "fzf"
-      ];
-    };
+    plugins = [
+      {
+        name = "zsh-history-substring-search";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-history-substring-search";
+          rev = "v1.1.0";
+          sha256 = "sha256-5xKQ9BANmHvvYMj0RxHhV40H1aBYpSBsnDrQBFLDM9I=";
+        };
+      }
+    ];
     shellAliases = {
       nix-switch = "home-manager switch --flake ~/.config/home-manager#work --impure";
     };
@@ -54,6 +52,7 @@
       alias kns=kubens
       alias gciv="glab ci view -w";
       # Pfeiltasten durchsuchen History nach Präfix
+      source "${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
       bindkey '^[[A' history-substring-search-up
       bindkey '^[[B' history-substring-search-down
 
