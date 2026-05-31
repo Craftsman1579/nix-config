@@ -22,8 +22,6 @@
     globals = {
       mapleader = " ";
       maplocalleader = " ";
-      # Pfad zum js-debug Binary - wird in extra-lua.nix fuer DAP genutzt
-      js_debug_cmd = "${pkgs.vscode-js-debug}/bin/js-debug";
     };
 
     opts = {
@@ -61,26 +59,15 @@
 
      autoGroups.highlight-yank.clear = true;
 
-     colorschemes.catppuccin = {
+     colorschemes.monokai-pro = {
        enable = true;
        autoLoad = true;
        callSetup = true;
        settings = {
-         flavour = "macchiato";
          transparent_background = false;
-         integrations = {
-           cmp = true;
-           gitsigns = true;
-           telescope = true;
-           treesitter = true;
-           which_key = true;
-           indent_blankline = { enabled = true; };
-           lualine = true;
-           trouble = true;
-           noice = true;
-           flash = true;
-           illuminate = true;
-         };
+         terminal_colors = true;
+         devicons = true;
+         filter = "pro";
        };
      };
 
