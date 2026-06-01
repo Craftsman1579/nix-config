@@ -5,7 +5,6 @@
     ./cli
     ./terminal
     ./base.nix
-    inputs.nixvim.homeModules.nixvim
   ];
 
   home.packages = with pkgs; [
