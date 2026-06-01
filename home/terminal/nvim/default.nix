@@ -95,6 +95,8 @@ in
 
           { plugin = vim-nix; type = "lua"; }
 
+          { plugin = nvim-web-devicons; type = "lua"; }
+
           {
             plugin = neo-tree-nvim;
             type = "lua";
