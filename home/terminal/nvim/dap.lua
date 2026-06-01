@@ -2,15 +2,10 @@ local M = {}
 
 local dap = require('dap')
 
--- Default pwa-node adapter. If you want to use the vscode-js-debug from Nix,
--- inject the path from Nix into this file or into the Nix string that wraps this file.
-dap.adapters.pwa_node = {
-  type = 'server',
-  host = 'localhost',
-  port = '${port}', -- placeholder if you want to replace via Nix string
-}
+-- Adapter definitions removed per user request. Configure adapters externally
+-- (for example via a separate file or in your plugin manager) if needed.
 
--- Example configurations for typescript/javascript
+-- Example configurations for typescript/javascript (adapters expected to be defined elsewhere)
 dap.configurations.typescript = {
   {
     type = 'pwa-node', request = 'launch', name = 'Launch File (ts-node)',

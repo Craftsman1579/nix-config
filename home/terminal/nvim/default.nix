@@ -30,7 +30,10 @@ in
       ];
 
       extraConfig = config.programs.vim.extraConfig; # read original vim config file for common options
-      extraLuaConfig = builtins.readFile ./base.lua;
+      # Use initLua (newer option name) to provide the base Lua config
+      initLua = ''
+${builtins.readFile ./base.lua}
+'';
 
       plugins =
         with pkgs.vimPlugins;
@@ -41,31 +44,36 @@ in
         [
           {
             plugin = nvim-lspconfig;
+            type = "lua";
             config = toLuaFile ./lsp-config.lua;
           }
 
           {
             plugin = tiny-inline-diagnostic-nvim;
+            type = "lua";
             config = toLuaFile ./tiny-inline-diagnostic.lua;
           }
 
           {
             plugin = nvim-dap;
+            type = "lua";
             config = toLuaFile ./dap.lua;
           }
 
           {
             plugin = nvim-dap-virtual-text;
+            type = "lua";
             config = toLuaFile ./dap-virtual-text.lua;
           }
 
           {
             plugin = nvim-cmp;
+            type = "lua";
             config = toLuaFile ./cmp.lua;
           }
 
-          cmp-nvim-lsp
-          cmp-dap
+          { plugin = cmp-nvim-lsp; type = "lua"; }
+          { plugin = cmp-dap; type = "lua"; }
 
           {
             plugin = (
@@ -83,36 +91,43 @@ in
                 p.tree-sitter-vim
               ])
             );
+            type = "lua";
             config = toLuaFile ./treesitter.lua;
           }
 
           {
             plugin = telescope-nvim;
+            type = "lua";
             config = toLuaFile ./telescope.lua;
           }
           {
             plugin = telescope-dap-nvim;
+            type = "lua";
             config = toLua "require('telescope').load_extension('dap')";
           }
           {
             plugin = telescope-fzf-native-nvim;
+            type = "lua";
             config = toLua "require('telescope').load_extension('fzf')";
           }
 
-          vim-nix
+          { plugin = vim-nix; type = "lua"; }
 
           {
             plugin = nvim-solarized-lua;
+            type = "lua";
             config = toLuaFile ./solarized.lua;
           }
 
           {
             plugin = which-key-nvim;
+            type = "lua";
             config = toLuaFile ./which-key.lua;
           }
 
           {
             plugin = twilight-nvim;
+            type = "lua";
             config = toLuaFile ./twilight.lua;
           }
         ];
