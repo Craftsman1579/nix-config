@@ -21,7 +21,7 @@ local on_attach = function(client, bufnr)
   map('K', vim.lsp.buf.hover, 'Hover Documentation')
   map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
 
-  if client and client.supports_method and client.supports_method('textDocument/inlayHint') then
+  if client and client:supports_method('textDocument/inlayHint') then
     map('<leader>th', function()
       if vim.lsp.inlay_hint then
         local enabled = vim.lsp.inlay_hint.is_enabled and vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
