@@ -12,6 +12,7 @@
     opencode
     k9s
 
+    openclaw
     # dev tools
     nil
     biome

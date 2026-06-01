@@ -22,7 +22,10 @@
             };
             preferences = {
               includePackageJsonAutoImports = "on";
-              autoImportFileExcludePatterns = [ "node_modules/**" ".nx/**" ];
+              autoImportFileExcludePatterns = [
+                "node_modules/**"
+                ".nx/**"
+              ];
             };
           };
         };
@@ -31,7 +34,12 @@
         eslint = {
           enable = true;
           settings.run = "onSave";
-          settings.validate = [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
+          settings.validate = [
+            "javascript"
+            "javascriptreact"
+            "typescript"
+            "typescriptreact"
+          ];
         };
 
         jsonls = {
@@ -44,7 +52,8 @@
           settings.yaml = {
             schemas = {
               "https://json.schemastore.org/github-workflow.json" = "/.github/workflows/*";
-              "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" = "docker-compose*.yml";
+              "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" =
+                "docker-compose*.yml";
               "https://json.schemastore.org/kustomization.json" = "kustomization.yaml";
               "https://json.schemastore.org/helmfile.json" = "helmfile.yaml";
             };
@@ -54,7 +63,11 @@
 
         graphql = {
           enable = true;
-          filetypes = [ "graphql" "typescriptreact" "javascriptreact" ];
+          filetypes = [
+            "graphql"
+            "typescriptreact"
+            "javascriptreact"
+          ];
         };
 
         helm_ls = {
@@ -80,18 +93,14 @@
             formatting.command = [ "nixfmt" ];
             nixpkgs.expr = "import <nixpkgs> { }";
             options = {
-            nixos.expr = "(builtins.getFlake (toString ~/.config/nix)).nixosConfigurations.my-macbook.options";
-            home_manager.expr = "(builtins.getFlake (toString ~/.config/nix)).homeConfigurations.alex.options";
+              nixos.expr = "(builtins.getFlake (toString ~/.config/nix)).nixosConfigurations.my-macbook.options";
+              home_manager.expr = "(builtins.getFlake (toString ~/.config/nix)).homeConfigurations.alex.options";
             };
           };
         };
 
         bashls.enable = true;
         dockerls.enable = true;
-<<<<<<< HEAD
-=======
-
->>>>>>> 451c450652bb4abc9e56ef3b5564b01d04c89574
       };
     };
   };
