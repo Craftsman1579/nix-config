@@ -54,17 +54,7 @@ ${builtins.readFile ./base.lua}
             config = toLuaFile ./tiny-inline-diagnostic.lua;
           }
 
-          {
-            plugin = nvim-dap;
-            type = "lua";
-            config = toLuaFile ./dap.lua;
-          }
-
-          {
-            plugin = nvim-dap-virtual-text;
-            type = "lua";
-            config = toLuaFile ./dap-virtual-text.lua;
-          }
+          # DAP plugins removed
 
           {
             plugin = nvim-cmp;
@@ -73,7 +63,6 @@ ${builtins.readFile ./base.lua}
           }
 
           { plugin = cmp-nvim-lsp; type = "lua"; }
-          { plugin = cmp-dap; type = "lua"; }
 
           {
             plugin = (
@@ -99,11 +88,6 @@ ${builtins.readFile ./base.lua}
             plugin = telescope-nvim;
             type = "lua";
             config = toLuaFile ./telescope.lua;
-          }
-          {
-            plugin = telescope-dap-nvim;
-            type = "lua";
-            config = toLua "require('telescope').load_extension('dap')";
           }
           {
             plugin = telescope-fzf-native-nvim;
