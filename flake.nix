@@ -13,10 +13,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # neovim configuration
-    nixvim = {
-      url = "github:nix-community/nixvim/26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixvim input removed: using builtin programs.neovim + local Lua config instead
   };
 
   outputs =
