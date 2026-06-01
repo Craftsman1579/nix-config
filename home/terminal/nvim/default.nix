@@ -18,6 +18,8 @@ in
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+      withRuby = true;
+      withPython3 = true;
 
       extraPackages = with pkgs; [
         fzf
@@ -30,28 +32,22 @@ in
       ];
 
       extraConfig = config.programs.vim.extraConfig; # read original vim config file for common options
-      # Use initLua (newer option name) to provide the base Lua config
-      initLua = ''
-${builtins.readFile ./base.lua}
-'';
+      # initLua is embedded directly into init.lua as top-level Lua
+      initLua = builtins.readFile ./base.lua;
 
       plugins =
         with pkgs.vimPlugins;
-        let
-          toLua = str: "lua << EOF\n${str}\nEOF\n";
-          toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-        in
         [
           {
             plugin = nvim-lspconfig;
             type = "lua";
-            config = toLuaFile ./lsp-config.lua;
+            config = builtins.readFile ./lsp-config.lua;
           }
 
           {
             plugin = tiny-inline-diagnostic-nvim;
             type = "lua";
-            config = toLuaFile ./tiny-inline-diagnostic.lua;
+            config = builtins.readFile ./tiny-inline-diagnostic.lua;
           }
 
           # DAP plugins removed
@@ -59,7 +55,7 @@ ${builtins.readFile ./base.lua}
           {
             plugin = nvim-cmp;
             type = "lua";
-            config = toLuaFile ./cmp.lua;
+            config = builtins.readFile ./cmp.lua;
           }
 
           { plugin = cmp-nvim-lsp; type = "lua"; }
@@ -81,18 +77,18 @@ ${builtins.readFile ./base.lua}
               ])
             );
             type = "lua";
-            config = toLuaFile ./treesitter.lua;
+            config = builtins.readFile ./treesitter.lua;
           }
 
           {
             plugin = telescope-nvim;
             type = "lua";
-            config = toLuaFile ./telescope.lua;
+            config = builtins.readFile ./telescope.lua;
           }
           {
             plugin = telescope-fzf-native-nvim;
             type = "lua";
-            config = toLua "require('telescope').load_extension('fzf')";
+            config = "require('telescope').load_extension('fzf')";
           }
 
           { plugin = vim-nix; type = "lua"; }
@@ -100,19 +96,19 @@ ${builtins.readFile ./base.lua}
           {
             plugin = nvim-solarized-lua;
             type = "lua";
-            config = toLuaFile ./solarized.lua;
+            config = builtins.readFile ./solarized.lua;
           }
 
           {
             plugin = which-key-nvim;
             type = "lua";
-            config = toLuaFile ./which-key.lua;
+            config = builtins.readFile ./which-key.lua;
           }
 
           {
             plugin = twilight-nvim;
             type = "lua";
-            config = toLuaFile ./twilight.lua;
+            config = builtins.readFile ./twilight.lua;
           }
         ];
     };

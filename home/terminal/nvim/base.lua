@@ -1,14 +1,10 @@
--- Base Neovim configuration converted from nixvim opts/globals
-local M = {}
-
+-- Base Neovim configuration (initLua: executed as top-level Lua)
 -- Globals
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Options
 local o = vim.o
-local wo = vim.wo
-
 o.number = true
 o.relativenumber = true
 o.mouse = 'a'
@@ -43,5 +39,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = yank_group,
   callback = function() vim.highlight.on_yank() end,
 })
-
-return M

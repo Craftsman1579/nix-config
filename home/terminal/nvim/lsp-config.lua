@@ -1,6 +1,4 @@
--- LSP configuration (converted from nixvim lsp configuration)
-local M = {}
-
+-- LSP configuration (plugin config, executed as top-level Lua)
 local lspconfig = require('lspconfig')
 
 -- Helper to attach common keymaps when LSP attaches
@@ -39,9 +37,8 @@ local on_attach = function(client, bufnr)
 end
 
 -- Server configurations
--- Note: Ensure the servers are installed on PATH (Nix: provide via extraPackages / home.packages)
+-- Ensure the servers are installed on PATH (Nix: provide via extraPackages / home.packages)
 
--- typescript (vtsls)
 lspconfig.vtsls.setup{
   on_attach = on_attach,
   settings = {
@@ -62,25 +59,16 @@ lspconfig.vtsls.setup{
   },
 }
 
--- eslint
 lspconfig.eslint.setup{
   on_attach = on_attach,
   settings = { run = 'onSave'; validate = { 'javascript','javascriptreact','typescript','typescriptreact' } },
 }
 
--- jsonls
 lspconfig.jsonls.setup{ on_attach = on_attach }
-
--- yamlls
 lspconfig.yamlls.setup{ on_attach = on_attach }
-
--- graphql
 lspconfig.graphql.setup{ on_attach = on_attach }
-
--- helm_ls
 lspconfig.helm_ls.setup{ on_attach = on_attach }
 
--- lua_ls
 lspconfig.lua_ls.setup{
   on_attach = on_attach,
   settings = {
@@ -92,7 +80,6 @@ lspconfig.lua_ls.setup{
   }
 }
 
--- nix language server (nixd)
 lspconfig.nixd.setup{
   on_attach = on_attach,
   settings = {
@@ -100,8 +87,5 @@ lspconfig.nixd.setup{
   }
 }
 
--- Generic servers
 lspconfig.bashls.setup{ on_attach = on_attach }
 lspconfig.dockerls.setup{ on_attach = on_attach }
-
-return M

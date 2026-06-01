@@ -1,5 +1,3 @@
-local M = {}
-
 require('nvim-treesitter.configs').setup {
   ensure_installed = {
     'typescript','tsx','javascript',
@@ -37,5 +35,3 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
-
-return M

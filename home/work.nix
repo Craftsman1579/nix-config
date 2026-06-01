@@ -29,7 +29,7 @@
           owner = "zsh-users";
           repo = "zsh-history-substring-search";
           rev = "v1.1.0";
-          sha256 = "sha256-5xKQ9BANmHvvYMj0RxHhV40H1aBYpSBsnDrQBFLDM9I=";
+        sha256 = "sha256-GSEvgvgWi1rrsgikTzDXokHTROoyPRlU0FVpAoEmXG4=";
         };
       }
     ];
