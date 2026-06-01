@@ -1,19 +1,21 @@
--- LSP configuration (plugin config, executed as top-level Lua)
-local lspconfig = require('lspconfig')
+-- LSP configuration using vim.lsp.config (nvim-lspconfig v3+ replacement)
+-- Servers are configured via vim.lsp.config.<name> = { ... } and enabled with vim.lsp.enable({...}).
 
 -- Helper to attach common keymaps when LSP attaches
 local on_attach = function(client, bufnr)
-  local builtin = require('telescope.builtin')
+  local builtin_ok, builtin = pcall(require, 'telescope.builtin')
   local function map(keys, func, desc, mode)
     mode = mode or 'n'
     vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = 'LSP: ' .. (desc or '') })
   end
 
-  map('gd', builtin.lsp_definitions, 'Goto Definition')
-  map('gr', builtin.lsp_references, 'Goto References')
-  map('gI', builtin.lsp_implementations, 'Goto Implementation')
-  map('<leader>cs', builtin.lsp_document_symbols, 'Code Symbols')
-  map('<leader>cS', builtin.lsp_dynamic_workspace_symbols, 'Workspace Symbols')
+  if builtin_ok then
+    map('gd', builtin.lsp_definitions, 'Goto Definition')
+    map('gr', builtin.lsp_references, 'Goto References')
+    map('gI', builtin.lsp_implementations, 'Goto Implementation')
+    map('<leader>cs', builtin.lsp_document_symbols, 'Code Symbols')
+    map('<leader>cS', builtin.lsp_dynamic_workspace_symbols, 'Workspace Symbols')
+  end
   map('<leader>cr', vim.lsp.buf.rename, 'Code Rename')
   map('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
   map('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -36,11 +38,19 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- Server configurations
--- Ensure the servers are installed on PATH (Nix: provide via extraPackages / home.packages)
+-- Register the on_attach for all LSP clients via LspAttach autocmd
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('user-lsp-attach', { clear = true }),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    on_attach(client, args.buf)
+  end,
+})
 
-lspconfig.vtsls.setup{
-  on_attach = on_attach,
+-- Server configurations (vim.lsp.config)
+-- Ensure the server binaries are available on PATH (Nix: provide via extraPackages / home.packages).
+
+vim.lsp.config.vtsls = {
   settings = {
     typescript = {
       inlayHints = {
@@ -59,33 +69,41 @@ lspconfig.vtsls.setup{
   },
 }
 
-lspconfig.eslint.setup{
-  on_attach = on_attach,
-  settings = { run = 'onSave'; validate = { 'javascript','javascriptreact','typescript','typescriptreact' } },
+vim.lsp.config.eslint = {
+  settings = { run = 'onSave'; validate = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' } },
 }
 
-lspconfig.jsonls.setup{ on_attach = on_attach }
-lspconfig.yamlls.setup{ on_attach = on_attach }
-lspconfig.graphql.setup{ on_attach = on_attach }
-lspconfig.helm_ls.setup{ on_attach = on_attach }
-
-lspconfig.lua_ls.setup{
-  on_attach = on_attach,
+vim.lsp.config.jsonls = {}
+vim.lsp.config.yamlls = {}
+vim.lsp.config.graphql = {}
+vim.lsp.config['helm_ls'] = {}
+vim.lsp.config['lua_ls'] = {
   settings = {
     Lua = {
       runtime = { version = 'LuaJIT' },
       workspace = { checkThirdParty = false, library = { vim.env.VIMRUNTIME } },
       telemetry = { enable = false },
-    }
-  }
+    },
+  },
 }
-
-lspconfig.nixd.setup{
-  on_attach = on_attach,
+vim.lsp.config.nixd = {
   settings = {
     formatting = { command = { 'nixfmt' } },
-  }
+  },
 }
+vim.lsp.config.bashls = {}
+vim.lsp.config.dockerls = {}
 
-lspconfig.bashls.setup{ on_attach = on_attach }
-lspconfig.dockerls.setup{ on_attach = on_attach }
+-- Enable the servers we want active
+vim.lsp.enable({
+  'vtsls',
+  'eslint',
+  'jsonls',
+  'yamlls',
+  'graphql',
+  'helm_ls',
+  'lua_ls',
+  'nixd',
+  'bashls',
+  'dockerls',
+})

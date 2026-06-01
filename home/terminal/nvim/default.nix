@@ -59,6 +59,8 @@ in
           }
 
           { plugin = cmp-nvim-lsp; type = "lua"; }
+          { plugin = luasnip; type = "lua"; }
+          { plugin = friendly-snippets; type = "lua"; }
 
           {
             plugin = (
