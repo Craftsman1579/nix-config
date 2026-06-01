@@ -14,7 +14,7 @@
 
     # neovim configuration
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:nix-community/nixvim/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
