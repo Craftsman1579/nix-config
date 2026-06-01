@@ -120,6 +120,8 @@ in
             type = "lua";
             config = builtins.readFile ./twilight.lua;
           }
+
+          { plugin = vim-tmux-navigator; type = "lua"; }
         ];
     };
   };
