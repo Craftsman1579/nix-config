@@ -46,7 +46,7 @@
 
     comment.enable = true;
     nvim-autopairs.enable = true;
-    vim-surround.enable = true;
+    nvim-surround.enable = true;
     vim-sleuth.enable = true;
     tmux-navigator.enable = true;
 

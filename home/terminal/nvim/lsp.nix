@@ -9,42 +9,21 @@
     lsp = {
       enable = true;
       servers = {
-        ts_ls = {
+        vtsls = {
           enable = true;
-          
-          # InlayHints: Typ-Informationen im Editor anzeigen
-          settings.typescript.inlayHints = {
-            includeInlayParameterNameHints = "all";        # Parameternamen
-            includeInlayFunctionParameterTypeHints = true;  # Funktions-Param-Typen
-            includeInlayVariableTypeHints = true;           # Variablen-Typen
-            includeInlayPropertyDeclarationTypeHints = true; # Property-Typen
-            includeInlayFunctionReturnTypeHints = true;     # Return-Typen
-            includeInlayEnumMemberValueHints = true;        # Enum-Werte
-          };
-
-          # Code-Analyse & Diagnostik
           settings.typescript = {
-            # Vorschläge & Auto-Fix
-            suggest = {
-              autoImports = true;
-              completeFunctionCalls = true;
-              completeJSDocs = true;
+            inlayHints = {
+              parameterNames.enabled = "all";
+              parameterTypes.enabled = true;
+              variableTypes.enabled = true;
+              propertyDeclarationTypes.enabled = true;
+              functionLikeReturnTypes.enabled = true;
+              enumMemberValues.enabled = true;
             };
-            
-            # Null/Undefined-Checking
-            tsserver.maxTsServerMemory = 3072;  # RAM für TS-Server (MB)
-            
-            # Diagnostik-Filter
-            reportAssignmentType = true;
-            reportIncompatibleMethodOverride = true;
-            reportIncompatibleVariableOverride = true;
-          };
-
-          # JS/JSX-Dateien auch prüfen
-          settings.javascript.inlayHints = {
-            includeInlayParameterNameHints = "all";
-            includeInlayFunctionParameterTypeHints = true;
-            includeInlayVariableTypeHints = true;
+            preferences = {
+              includePackageJsonAutoImports = "on";
+              autoImportFileExcludePatterns = [ "node_modules/**" ".nx/**" ];
+            };
           };
         };
 
@@ -66,6 +45,8 @@
             schemas = {
               "https://json.schemastore.org/github-workflow.json" = "/.github/workflows/*";
               "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" = "docker-compose*.yml";
+              "https://json.schemastore.org/kustomization.json" = "kustomization.yaml";
+              "https://json.schemastore.org/helmfile.json" = "helmfile.yaml";
             };
             keyOrdering = false;
           };
@@ -93,8 +74,24 @@
           };
         };
 
+        nixd = {
+          enable = true;
+          settings = {
+            formatting.command = [ "nixfmt" ];
+            nixpkgs.expr = "import <nixpkgs> { }";
+            options = {
+            nixos.expr = "(builtins.getFlake (toString ~/.config/nix)).nixosConfigurations.my-macbook.options";
+            home_manager.expr = "(builtins.getFlake (toString ~/.config/nix)).homeConfigurations.alex.options";
+            };
+          };
+        };
+
         bashls.enable = true;
         dockerls.enable = true;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 451c450652bb4abc9e56ef3b5564b01d04c89574
       };
     };
   };

@@ -9,7 +9,7 @@
     which-key = {
       enable = true;
       settings.spec = [
-        { __unkeyed-1 = "<leader>s"; group = "Search"; }
+        { __unkeyed-1 = "<leader>f"; group = "Find"; }
         { __unkeyed-1 = "<leader>c"; group = "Code"; }
         { __unkeyed-1 = "<leader>d"; group = "Debug"; }
         { __unkeyed-1 = "<leader>g"; group = "Git"; }
@@ -24,7 +24,7 @@
       enable = true;
       settings = {
         options = {
-          theme = "catppuccin";
+          theme = "auto";
           component_separators = { left = ""; right = ""; };
           section_separators = { left = ""; right = ""; };
         };
