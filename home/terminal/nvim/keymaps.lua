@@ -1,5 +1,4 @@
-local M = {}
-
+-- Keymaps (executed as top-level Lua in init.lua)
 local map = vim.keymap.set
 
 -- Clear search highlight
@@ -12,7 +11,8 @@ map('n', '<S-h>', '<cmd>bprevious<CR>', { desc = 'Previous buffer' })
 map('n', '<S-l>', '<cmd>bnext<CR>', { desc = 'Next buffer' })
 map('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = 'Close buffer' })
 
-map('n', '<leader>e', '<cmd>Neotree toggle<CR>', { desc = 'File Explorer toggle' })
+-- Neo-tree (file explorer)
+map('n', '<leader>e', '<cmd>Neotree filesystem toggle<CR>', { desc = 'File Explorer toggle' })
 map('n', '<leader>E', '<cmd>Neotree focus<CR>', { desc = 'File Explorer focus' })
 map('n', '<leader>t', "<Cmd>exe v:count1 . 'ToggleTerm'<CR>", { desc = 'Terminal toggle' })
 
@@ -30,17 +30,16 @@ map('n', '<leader>fp', '<cmd>Telescope projects<CR>', { desc = 'Find Projects' }
 
 map('n', '<leader>cf', function() require('conform').format({ async = true, lsp_format = 'fallback' }) end, { desc = 'Code Format' })
 
--- DAP keymaps
-map('n', '<leader>dc', function() require('dap').continue() end, { desc = 'Debug Continue' })
-map('n', '<leader>db', function() require('dap').toggle_breakpoint() end, { desc = 'Debug Breakpoint' })
-map('n', '<leader>dB', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = 'Debug Conditional Breakpoint' })
-map('n', '<leader>di', function() require('dap').step_into() end, { desc = 'Debug Step Into' })
-map('n', '<leader>do', function() require('dap').step_over() end, { desc = 'Debug Step Over' })
-map('n', '<leader>dO', function() require('dap').step_out() end, { desc = 'Debug Step Out' })
-map('n', '<leader>dr', function() require('dap').restart() end, { desc = 'Debug Restart' })
-map('n', '<leader>dt', function() require('dap').terminate() end, { desc = 'Debug Terminate' })
-map('n', '<leader>du', function() require('dapui').toggle() end, { desc = 'Debug UI Toggle' })
-map({'n','v'}, '<leader>de', function() require('dapui').eval() end, { desc = 'Debug Eval' })
+-- DAP keymaps (only effective if DAP is loaded; otherwise ignored)
+map('n', '<leader>dc', function() pcall(function() require('dap').continue() end) end, { desc = 'Debug Continue' })
+map('n', '<leader>db', function() pcall(function() require('dap').toggle_breakpoint() end) end, { desc = 'Debug Breakpoint' })
+map('n', '<leader>di', function() pcall(function() require('dap').step_into() end) end, { desc = 'Debug Step Into' })
+map('n', '<leader>do', function() pcall(function() require('dap').step_over() end) end, { desc = 'Debug Step Over' })
+map('n', '<leader>dO', function() pcall(function() require('dap').step_out() end) end, { desc = 'Debug Step Out' })
+map('n', '<leader>dr', function() pcall(function() require('dap').restart() end) end, { desc = 'Debug Restart' })
+map('n', '<leader>dt', function() pcall(function() require('dap').terminate() end) end, { desc = 'Debug Terminate' })
+map('n', '<leader>du', function() pcall(function() require('dapui').toggle() end) end, { desc = 'Debug UI Toggle' })
+map({'n','v'}, '<leader>de', function() pcall(function() require('dapui').eval() end) end, { desc = 'Debug Eval' })
 
 map('n', '<leader>gd', '<cmd>DiffviewOpen<CR>', { desc = 'Git Diffview' })
 map('n', '<leader>gh', '<cmd>DiffviewFileHistory %<CR>', { desc = 'Git File History' })
@@ -59,5 +58,3 @@ map({'n','v'}, '<leader>aq', function()
   local input = vim.fn.input('Copilot: ')
   if input ~= '' then vim.cmd('CopilotChat ' .. input) end
 end, { desc = 'AI Quick Chat' })
-
-return M

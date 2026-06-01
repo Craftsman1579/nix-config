@@ -32,8 +32,8 @@ in
       ];
 
       extraConfig = config.programs.vim.extraConfig; # read original vim config file for common options
-      # initLua is embedded directly into init.lua as top-level Lua
-      initLua = builtins.readFile ./base.lua;
+      # initLua: base + keymaps (concatenated; top-level Lua)
+      initLua = (builtins.readFile ./base.lua) + "\n" + (builtins.readFile ./keymaps.lua);
 
       plugins =
         with pkgs.vimPlugins;
@@ -94,6 +94,12 @@ in
           }
 
           { plugin = vim-nix; type = "lua"; }
+
+          {
+            plugin = neo-tree-nvim;
+            type = "lua";
+            config = builtins.readFile ./neo-tree.lua;
+          }
 
           {
             plugin = nvim-solarized-lua;
