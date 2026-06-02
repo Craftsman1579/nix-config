@@ -6,6 +6,7 @@ mit geteilter home-manager Config für beide Rechner.
 ## Nutzung
 
 ```bash
+export NIX_CONFIG="experimental-features = nix-command flakes"
 # macOS (MacBook)
 darwin-rebuild switch --flake .#my-macbook --impure 
 
