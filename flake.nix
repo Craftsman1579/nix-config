@@ -2,7 +2,7 @@
   description = "My system configuration";
   inputs = {
     # monorepo w/ recipes ("derivations")
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # manages configs - from system channels to match image version
     home-manager.url = "github:nix-community/home-manager/master";
@@ -14,7 +14,7 @@
 
     # neovim configuration
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-26.05";
+      url = "github:nix-community/nixvim/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
