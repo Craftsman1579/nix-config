@@ -7,7 +7,7 @@ mit geteilter home-manager Config für beide Rechner.
 
 ```bash
 # macOS (MacBook)
-darwin-rebuild switch --flake .#my-macbook
+darwin-rebuild switch --flake .#my-macbook --impure 
 
 # Linux (Arbeitsrechner)
 home-manager switch --flake .#work
