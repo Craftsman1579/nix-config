@@ -42,7 +42,11 @@
       }
     },
     "home-manager": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
         "lastModified": 1780370888,
         "narHash": "sha256-PRJj9RKTEf/sITycujP1c/BrvLJKMYXzcpwTsXNulXQ=",
