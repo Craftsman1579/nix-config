@@ -1,4 +1,9 @@
-{ inputs, outputs, pkgs, ... }:
+{
+  inputs,
+  outputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     /etc/qcp/nix/defaults.nix
@@ -30,6 +35,7 @@
       export EDITOR=nvim
       export VISUAL=nvim
       export FZF_BASE="${pkgs.fzf}/share/fzf"
+      export NIX_CONFIG="experimental-features = nix-command flakes"
 
       # kubectl shortcuts
       alias k=kubectl
