@@ -47,7 +47,7 @@
     comment.enable = true;
     nvim-autopairs.enable = true;
     nvim-surround.enable = true;
-    vim-sleuth.enable = true;
+    sleuth.enable = true;
     tmux-navigator.enable = true;
 
     toggleterm = {
@@ -72,11 +72,10 @@
 
     illuminate.enable = true;
 
-    ufo = {
+    nvim-ufo = {
       enable = true;
       settings = {
-        fold_virt_text_titles = true;
-        enable_get_cursor_colline = true;
+        enable_get_fold_virt_text = true;
       };
     };
   };
