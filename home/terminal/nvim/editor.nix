@@ -47,7 +47,6 @@
     comment.enable = true;
     nvim-autopairs.enable = true;
     nvim-surround.enable = true;
-    sleuth.enable = true;
     tmux-navigator.enable = true;
 
     toggleterm = {
@@ -68,15 +67,6 @@
       };
     };
 
-    flash.enable = true;
-
     illuminate.enable = true;
-
-    nvim-ufo = {
-      enable = true;
-      settings = {
-        enable_get_fold_virt_text = true;
-      };
-    };
   };
 }

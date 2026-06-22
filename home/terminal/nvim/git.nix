@@ -30,8 +30,5 @@
         '';
       };
     };
-
-    fugitive.enable = true;
-    diffview.enable = true;
   };
 }

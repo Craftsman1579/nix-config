@@ -1,7 +1,6 @@
 # Lua-Konfiguration die nicht im NixVim-DSL ausgedrueckt werden kann:
 #   - OSC 52 Clipboard (fuer Coder Remote-Container)
 #   - LSP Keymaps via LspAttach (benoetigen Telescope-Referenz)
-#   - DAP listeners (dapui open/close)
 { ... }:
 
 {
@@ -57,13 +56,5 @@
         end
       end,
     })
-
-    -- DAP: listeners for dapui
-    local dap = require('dap')
-    local dapui = require('dapui')
-    dap.listeners.before.attach.dapui_config = function() dapui.open() end
-    dap.listeners.before.launch.dapui_config = function() dapui.open() end
-    dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
-    dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
   '';
 }

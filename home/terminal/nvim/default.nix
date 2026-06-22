@@ -9,7 +9,6 @@
     ./lsp.nix
     ./completion.nix
     ./git.nix
-    ./dap.nix
     ./copilot.nix
     ./extra-lua.nix
   ];

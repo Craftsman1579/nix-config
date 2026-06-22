@@ -2,6 +2,7 @@
   inputs,
   outputs,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -36,6 +37,7 @@
       export VISUAL=nvim
       export FZF_BASE="${pkgs.fzf}/share/fzf"
       export NIX_CONFIG="experimental-features = nix-command flakes"
+      export KUBECONFIG=~/.kube-rw/config
 
       # kubectl shortcuts
       alias k=kubectl
@@ -64,5 +66,15 @@
   programs.bash = {
     enable = true;
   };
+
+  home.activation.kubeRwLink = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p $HOME/.kube-rw
+    # schreibbare config-Datei (für current-context) nur anlegen wenn noch nicht vorhanden
+    if [ ! -f $HOME/.kube-rw/config ]; then
+      echo 'apiVersion: v1\nkind: Config\ncurrent-context: ""\nclusters: []\ncontexts: []\nusers: []' > $HOME/.kube-rw/config
+    fi
+    # symlink auf die eigentliche AWS-Config
+    ln -sf $HOME/.kube/config $HOME/.kube-rw/config-aws
+  '';
 
 }

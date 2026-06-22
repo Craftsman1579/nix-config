@@ -17,7 +17,6 @@
       typescript-language-server
       prettierd
       nixfmt
-      vscode-js-debug
       ripgrep
       fd
     ];
