@@ -39,11 +39,21 @@ in
 
   home.packages = with pkgs; [
     glab
-    codex
     gemini-cli
-  ] ++ [ pkgsUnstable.claude-code ];
+  ] ++ [ pkgsUnstable.herdr ];
 
   nixpkgs.config.allowUnfree = true;
+
+  programs.claude-code = {
+    enable = true;
+    package = pkgsUnstable.claude-code;
+    context = ./ai-instructions.md;
+  };
+
+  programs.codex = {
+    enable = true;
+    context = ./ai-instructions.md;
+  };
 
   home = {
     username = "coder";
