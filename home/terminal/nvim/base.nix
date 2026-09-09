@@ -59,17 +59,7 @@
 
     autoGroups.highlight-yank.clear = true;
 
-    colorschemes.monokai-pro = {
-      enable = true;
-      autoLoad = true;
-      callSetup = true;
-      settings = {
-        transparent_background = false;
-        terminal_colors = true;
-        devicons = true;
-        filter = "pro";
-      };
-    };
+    colorschemes.gruvbox.enable = true;
 
     autoCmd = [
       {
