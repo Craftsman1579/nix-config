@@ -29,10 +29,24 @@
     copilot-chat = {
       enable = true;
       settings = {
-        model = "claude-sonnet-4";
-
-        tools = [ "buffer" "file" "glob" "grep" "gitdiff" "bash" "edit" "selection" ];
-        trusted_tools = [ "buffer" "file" "glob" "grep" "gitdiff" "selection" ];
+        tools = [
+          "buffer"
+          "file"
+          "glob"
+          "grep"
+          "gitdiff"
+          "bash"
+          "edit"
+          "selection"
+        ];
+        trusted_tools = [
+          "buffer"
+          "file"
+          "glob"
+          "grep"
+          "gitdiff"
+          "selection"
+        ];
 
         window = {
           layout = "vertical";

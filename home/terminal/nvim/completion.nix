@@ -6,13 +6,11 @@
 
     friendly-snippets.enable = true;
 
-    luasnip = {
-      enable = true;
-      fromVscode = [ { } ];
-    };
+    luasnip.enable = true;
 
     blink-cmp = {
       enable = true;
+      setupLspCapabilities = false; # Native lsp.servers."*" supplies capabilities.
       settings = {
         keymap = {
           preset = "super-tab";

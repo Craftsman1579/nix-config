@@ -10,11 +10,9 @@
     nixpkgs.source = inputs.nixpkgs;
 
     # Externe Tools fuer Neovims PATH
-    # LSP-Server werden automatisch von plugins.lsp.servers.* bereitgestellt
+    # LSP-Server werden automatisch von lsp.servers.* bereitgestellt
     extraPackages = with pkgs; [
       nodejs
-      typescript
-      typescript-language-server
       prettierd
       nixfmt
       ripgrep
@@ -77,7 +75,7 @@
       {
         event = "TextYankPost";
         group = "highlight-yank";
-        callback.__raw = "function() vim.highlight.on_yank() end";
+        callback.__raw = "function() vim.hl.on_yank() end";
       }
     ];
   };

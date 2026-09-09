@@ -10,6 +10,5 @@
     ./completion.nix
     ./git.nix
     ./copilot.nix
-    ./extra-lua.nix
   ];
 }

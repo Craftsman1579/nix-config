@@ -12,7 +12,7 @@
       };
       grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
         typescript tsx javascript
-        json json5 yaml toml
+        json json5 yaml toml helm gotmpl
         html css scss graphql
         lua nix bash dockerfile
         markdown markdown_inline regex

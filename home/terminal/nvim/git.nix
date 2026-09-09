@@ -1,4 +1,4 @@
-# Git: Gitsigns, Fugitive, Diffview
+# Git: Gitsigns
 { ... }:
 
 {
@@ -18,10 +18,10 @@
           function(bufnr)
             local gs = require('gitsigns')
             local map = function(mode, l, r, desc)
-              vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
+              vim.keymap.set(mode, l, r, { buf = bufnr, desc = desc })
             end
-            map('n', ']h', gs.next_hunk, 'Next Hunk')
-            map('n', '[h', gs.prev_hunk, 'Previous Hunk')
+            map('n', ']h', function() gs.nav_hunk('next') end, 'Next Hunk')
+            map('n', '[h', function() gs.nav_hunk('prev') end, 'Previous Hunk')
             map('n', '<leader>gp', gs.preview_hunk, 'Git Preview Hunk')
             map('n', '<leader>gs', gs.stage_hunk, 'Git Stage Hunk')
             map('n', '<leader>gr', gs.reset_hunk, 'Git Reset Hunk')

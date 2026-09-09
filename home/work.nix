@@ -52,6 +52,7 @@ in
 
   programs.codex = {
     enable = true;
+    package = pkgsUnstable.codex;
     context = ./ai-instructions.md;
   };
 
@@ -61,6 +62,13 @@ in
   };
 
   programs.home-manager.enable = true;
+
+  # Remote-Clipboard und Options-Completion fuer diese Home-Manager-Flake.
+  programs.nixvim = {
+    globals.clipboard = "osc52";
+    lsp.servers.nixd.config.settings.nixd.options.home_manager.expr =
+      "(builtins.getFlake (toString ~/.config/home-manager)).homeConfigurations.work.options";
+  };
 
   programs.zsh = {
     enable = true;

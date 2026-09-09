@@ -35,21 +35,12 @@
       forAllSystems = nixpkgs.lib.genAttrs [
         "x86_64-linux"
         "aarch64-linux"
-      ];
-      forAllDarwinSystems = darwin.lib.genAttrs [
         "x86_64-darwin"
         "aarch64-darwin"
       ];
-
-      formatters = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-      darwinFormatters = forAllDarwinSystems (system: darwin.legacyPackages.${system}.nixfmt-rfc-style);
     in
     {
-      # The nix formatter for this flake. See https://github.com/NixOS/nixfmt. Use with 'nix fmt'
-      formatter = nixpkgs.lib.mergeAttrsList [
-        formatters
-        darwinFormatters
-      ];
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
       # build darwin flake using:
       # $ darwin-rebuild build --flake .#<name>
       darwinConfigurations."my-macbook" = darwin.lib.darwinSystem {

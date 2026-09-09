@@ -1,5 +1,5 @@
 # Editor-Plugins: Telescope, Neo-tree, Formatting, Utilities
-{ ... }:
+{ lib, ... }:
 
 {
   programs.nixvim.plugins = {
@@ -8,7 +8,12 @@
       enable = true;
       extensions.fzf-native.enable = true;
       settings.defaults.file_ignore_patterns = [
-        "node_modules" ".git/" "dist/" "build/" ".nx/" "coverage/"
+        "node_modules"
+        ".git/"
+        "dist/"
+        "build/"
+        ".nx/"
+        "coverage/"
       ];
     };
 
@@ -17,26 +22,36 @@
       settings.filesystem.filtered_items = {
         hide_dotfiles = false;
         hide_gitignored = false;
-        hide_by_name = [ "node_modules" ".git" ];
+        hide_by_name = [
+          "node_modules"
+          ".git"
+        ];
       };
     };
 
     conform-nvim = {
       enable = true;
       settings = {
-        formatters_by_ft = {
-          typescript.__raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
-          javascript.__raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
-          typescriptreact.__raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
-          javascriptreact.__raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
-          json.__raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
-          html.__raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
-          css.__raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
-          graphql.__raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
-          yaml.__raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
-          markdown.__raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
-          nix = [ "nixfmt" ];
-        };
+        formatters_by_ft =
+          lib.genAttrs
+            [
+              "typescript"
+              "javascript"
+              "typescriptreact"
+              "javascriptreact"
+              "json"
+              "html"
+              "css"
+              "graphql"
+              "yaml"
+              "markdown"
+            ]
+            (_: {
+              __raw = "{ 'prettierd', 'prettier', stop_after_first = true }";
+            })
+          // {
+            nix = [ "nixfmt" ];
+          };
         format_on_save = {
           timeout_ms = 3000;
           lsp_format = "fallback";
@@ -44,7 +59,6 @@
       };
     };
 
-    comment.enable = true;
     nvim-autopairs.enable = true;
     nvim-surround.enable = true;
     tmux-navigator.enable = true;
