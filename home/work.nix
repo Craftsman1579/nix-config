@@ -42,6 +42,16 @@ in
     gemini-cli
   ] ++ [ pkgsUnstable.herdr ];
 
+  xdg.configFile."herdr/config.toml".text = ''
+    onboarding = false
+
+    [ui]
+    agent_panel_sort = "spaces"
+
+    [terminal]
+    default_shell = "${pkgs.zsh}/bin/zsh"
+  '';
+
   nixpkgs.config.allowUnfree = true;
 
   programs.claude-code = {
