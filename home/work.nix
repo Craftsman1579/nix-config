@@ -37,6 +37,9 @@ in
     inputs.nixvim.homeModules.nixvim
   ];
 
+  # pkgsUnstable an die Submodule durchreichen (statt dort erneut zu importieren)
+  _module.args.pkgsUnstable = pkgsUnstable;
+
   home.packages = with pkgs; [
     glab
     gemini-cli
@@ -85,7 +88,8 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      nix-switch = "home-manager switch --flake ~/.config/home-manager#work --impure";
+      # nach dem Switch: pro Profil nur die 2 neuesten Generationen behalten
+      nix-switch = "home-manager switch --flake ~/.config/home-manager#work --impure && for p in home-manager profile channels; do nix-env -p ~/.local/state/nix/profiles/$p --delete-generations +2; done";
     };
     initContent = ''
       export EDITOR=nvim
