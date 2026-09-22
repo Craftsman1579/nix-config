@@ -59,13 +59,25 @@
 
     autoGroups.highlight-yank.clear = true;
 
-    colorschemes.gruvbox.enable = true;
+    colorschemes.catppuccin = {
+      enable = true;
+      settings.flavour = "mocha";
+    };
 
     autoCmd = [
       {
         event = "TextYankPost";
         group = "highlight-yank";
         callback.__raw = "function() vim.hl.on_yank() end";
+      }
+      {
+        # autoread allein reicht nicht - es braucht ein checktime als Ausloeser.
+        event = [
+          "FocusGained"
+          "BufEnter"
+          "CursorHold"
+        ];
+        command = "checktime";
       }
     ];
   };

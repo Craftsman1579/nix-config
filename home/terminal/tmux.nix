@@ -5,5 +5,6 @@
     shell = "${pkgs.zsh}/bin/zsh";
     mouse = true;
     escapeTime = 0;
+    focusEvents = true;
   };
 }
