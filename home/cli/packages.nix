@@ -11,7 +11,7 @@
     lazygit
     opencode
     k9s
-    openssl_3
+    openssl
 
     # dev tools
     nil

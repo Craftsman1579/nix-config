@@ -27,6 +27,27 @@ let
     fi
     export KUBECONFIG="$HOME/.kube-rw/config"
   '';
+
+  # Read-only Befehle ohne Rueckfrage, fuer Claude und Codex.
+  # Codex kennt nur Praefix-Regeln: Eintraege ohne " *" gelten dort auch mit Zusatzargumenten.
+  agentAllowedCommands = [
+    "kubectl get *"
+    "kubectl logs *"
+    "kubectl describe *"
+    "kubectl auth can-i *"
+    "kubectl rollout status *"
+    "kubectl config current-context"
+    "helm get values *"
+    "glab ci status *"
+    "glab ci trace *"
+    "glab ci list *"
+    "glab mr view *"
+    "glab mr list *"
+    "glab auth status"
+    "prettier --check *"
+    "yarn prettier --check *"
+    "yarn lint"
+  ];
 in
 {
   imports = [
@@ -63,10 +84,25 @@ in
     context = ./ai-instructions.md;
   };
 
+  # settings.json bleibt beschreibbar (Claude schreibt dort model, Plugins, Freigaben),
+  # daher Merge statt programs.claude-code.settings. Entfernte Eintraege bleiben stehen.
+  home.activation.claudeAllowedCommands = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    f="$HOME/.claude/settings.json"
+    if [ -z "''${DRY_RUN:-}" ] && [ -f "$f" ]; then
+      merged=$(${pkgs.jq}/bin/jq --argjson add ${
+        lib.escapeShellArg (builtins.toJSON (map (c: "Bash(${c})") agentAllowedCommands))
+      } '(.permissions.allow // []) as $a | .permissions.allow = $a + ($add - $a)' "$f") \
+        && printf '%s\n' "$merged" > "$f"
+    fi
+  '';
+
   programs.codex = {
     enable = true;
     package = pkgsUnstable.codex;
     context = ./ai-instructions.md;
+    rules.nix = lib.concatMapStrings (c: ''
+      prefix_rule(pattern=${builtins.toJSON (lib.splitString " " (lib.removeSuffix " *" c))}, decision="allow")
+    '') agentAllowedCommands;
   };
 
   home = {
